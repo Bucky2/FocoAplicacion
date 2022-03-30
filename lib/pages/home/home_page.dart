@@ -19,8 +19,8 @@ class HomePage extends StatelessWidget {
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
                 colors: const [
-                  Color.fromARGB(255, 253, 168, 168),
-                  Colors.black45
+                  Color.fromARGB(222, 241, 178, 304),
+                  Colors.greenAccent
                 ]),
           ),
           child: Column(
@@ -34,51 +34,51 @@ class HomePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Image.asset(
-                        'assets/img/logo_app.png',
+                        'assets/img/wiblu.png',
                         width: 150,
                         height: 100,
                       ),
                       Text(
-                        'Fácil y Rápido',
+                        'WIFI-BLUETOOTH',
                         style: TextStyle(
                             color: Colors.black54,
-                            fontSize: 50,
-                            fontFamily: 'DanielDavis'),
+                            fontSize: 35,
+                            fontFamily: 'Roboto'),
                       )
                     ],
                   ),
                 ),
               ),
-              SizedBox(height: 50),
+              SizedBox(height: 40),
               Text(
-                'SELECCIONA TU ROL',
-                style: TextStyle(color: Colors.white),
+                'SELECCIONA EL MODO DE CONEXIÓN',
+                style: TextStyle(color: Colors.black)
               ),
               SizedBox(height: 30),
               GestureDetector(
-                onTap: _con.goToLoginPage, //método que maneja el evento
+                onTap: _con.goToWifiPage, //método que maneja el evento
                 child: CircleAvatar(
-                  backgroundImage: AssetImage('assets/img/pasajero.png'),
+                  backgroundImage: AssetImage('assets/img/wifi.png'),
                   radius: 50,
                   backgroundColor: Colors.black,
                 ),
               ),
               Text(
-                'Cliente',
-                style: TextStyle(color: Colors.white),
+                'WIFI',
+                style: TextStyle(color: Colors.black),
               ),
               SizedBox(height: 20),
               GestureDetector(
-                onTap: _con.goToLoginPage,
+                onTap: _con.goToBluePage,
                 child: CircleAvatar(
-                  backgroundImage: AssetImage('assets/img/driver.png'),
+                  backgroundImage: AssetImage('assets/img/blue.png'),
                   radius: 50,
                   backgroundColor: Colors.black,
                 ),
               ),
               Text(
-                'Conductor',
-                style: TextStyle(color: Colors.white),
+                'BLUETOOTH',
+                style: TextStyle(color: Colors.black),
               ),
             ],
           ),

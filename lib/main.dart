@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:uber_gds0351/pages/home/home_page.dart';
-import 'package:uber_gds0351/pages/login/login_page.dart';
+import 'package:uber_gds0351/pages/wifi/wifi_page.dart';
+import 'package:uber_gds0351/pages/blue/blue_page.dart';
 import 'package:uber_gds0351/pages/register/register_page.dart';
-import 'package:uber_gds0351/pages/map/map_page.dart';
+import 'package:uber_gds0351/pages/foquillo/foquillo_page.dart';
 import 'package:uber_gds0351/pages/service/service_page.dart';
 
 void main() {
@@ -28,9 +29,10 @@ class _MyAppState extends State<MyApp> {
       initialRoute: 'home',
       routes: {
         'home': (BuildContext context) => HomePage(),
-        'login': (BuildContext context) => LoginPage(),
+        'wifi': (BuildContext context) => WifiPage(),
+        'blue': (BuildContext context) => BluePage(),
         'registro': (BuildContext context) => RegisterPage(),
-        'map': (BuildContext context) => MapPage(),
+        'foquillo': (BuildContext context) => FoquilloPage(),
         'service': (BuildContext context) => ServicePage(),
       },
     );

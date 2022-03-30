@@ -8,8 +8,12 @@ class HomeController {
     this.context = context;
   }
 
-  void goToLoginPage() {
-    Navigator.pushNamed(context, 'login');
+  void goToWifiPage() {
+    Navigator.pushNamed(context, 'wifi');
+  }
+
+   void goToBluePage() {
+    Navigator.pushNamed(context, 'blue');
   }
 
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class LoginController {
+class BlueController {
   BuildContext context;
   TextEditingController emailController = new TextEditingController();
   TextEditingController passwordController = new TextEditingController();
@@ -11,7 +11,7 @@ class LoginController {
     this.context = context;
   }
 
-  void login() {
+  void blue() {
     String email = emailController.text;
     String password = passwordController.text;
 
@@ -20,7 +20,7 @@ class LoginController {
     void goToRegisterPage() {
     Navigator.pushNamed(context, 'registro');
   }
-  void goToMapPage() {
-    Navigator.pushNamed(context, 'map');
+  void goToFoquilloPage() {
+    Navigator.pushNamed(context, 'foquillo');
   }
 }

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
-import 'package:uber_gds0351/pages/map/map_controller.dart';
+import 'package:uber_gds0351/pages/blue/blue_controller.dart';
 
-class MapPage extends StatefulWidget {
-  const MapPage({Key key}) : super(key: key);
+class BluePage extends StatefulWidget {
+  const BluePage({Key key}) : super(key: key);
 
   @override
-  State<MapPage> createState() => _MapPageState();
+  State<BluePage> createState() => _BluePageState();
 }
 
-class _MapPageState extends State<MapPage> {
-  MapController _con = new MapController(); //Objeto controlador
+class _BluePageState extends State<BluePage> {
+  BlueController _con = new BlueController(); //Objeto controlador
 
   @override
   void initState() {
@@ -26,48 +26,47 @@ class _MapPageState extends State<MapPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Map Page'),
+        title: Text('Bluetooth Page'),
+        backgroundColor: Colors.black87,
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             _bannerApp(),
-            _textDescription(),
-            _imageMap(),
-            _textSolicitedService(),
-            _buttonSingout()
+            _conBlue(),
+            _buttonLogin(),
+     
           ],
-        
         ),
       ),
     );
-  }
+  } //termina build
 
-    Widget _bannerApp() {
+  Widget _bannerApp() {
     return ClipPath(
-      clipper: OvalBottomBorderClipper(),
+      clipper: WaveClipperOne() ,
       child: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
-              colors: const [Colors.greenAccent, Colors.black54]),
+              colors: const [Colors.lightBlue, Colors.black87]),
         ),
-        height: MediaQuery.of(context).size.height * 0.20,
+        height: MediaQuery.of(context).size.height * 0.30,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Image.asset(
-              'assets/img/logo_app.png',
+              'assets/img/blue.png',
               width: 150,
               height: 100,
             ),
             Text(
-              'Mapa de busqueda',
+              'Conectate por Bluetooth..',
               style: TextStyle(
-                  color: Colors.black54,
-                  fontSize: 30,
-                  fontFamily: 'Serif'),
+                  color: Colors.white,
+                  fontSize: 27,
+                  fontFamily: 'Roboto'),
             )
           ],
         ),
@@ -75,49 +74,22 @@ class _MapPageState extends State<MapPage> {
     );
   } //Terminar _bannerApp
 
-   Widget _textDescription() {
-    return Container(
-      alignment: Alignment.centerLeft,
-      margin: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-      child: Text(
-        'Busca la zona donde deseas el servicio',
-        style: TextStyle(color: Colors.black54, fontSize: 17),
-      ),
-    );
-  } //termina _textDescription
-
-  Widget _imageMap() {
+   Widget _conBlue() {
     return Container(
       alignment: Alignment.center,
       margin: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-      child:Image.asset('assets/img/mapa.png' ), 
+      child:Image.asset('assets/img/bluepanel.jpg' ), 
     );
   } //termina _textDescription
 
-  Widget _textSolicitedService() {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 50),
-      child: GestureDetector(
-         onTap: _con.goToServicePage,
-        child: Text(
-          'Solicitar un Servicio de Uber',
-          style: TextStyle(
-            color: Colors.grey,
-            fontSize: 17
-          ),
-        ),
-      ),
-    );
-  }
- 
 
 
-  Widget _buttonSingout() {
+  Widget _buttonLogin() {
     return Container(
       width: double.infinity,
       margin: EdgeInsets.symmetric(horizontal: 30),
       child: ElevatedButton(
-        onPressed: _con.goToHomePage, //Método que ejecuta la acción rnt
+        onPressed: _con.goToFoquilloPage, //Método que ejecuta la acción rnt
 
         child: Stack(
           children: [
@@ -126,15 +98,20 @@ class _MapPageState extends State<MapPage> {
                 child: Align(
                   alignment: Alignment.center,
                   child: Text(
-                    'Cerrar Sesión',
-                    style: TextStyle(fontSize: 15),
+                    'Establecer Conexión',
+                    style: TextStyle(fontSize: 18),
                   ),
                 )),
             Container(
               margin: EdgeInsets.symmetric(vertical: 5),
               child: Align(
                 alignment: Alignment.centerRight,
-                
+                child: CircleAvatar(
+                  child: Icon(Icons.bluetooth_connected_outlined),
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.blueAccent,
+                  radius: 25,
+                ),
               ),
             )
           ],
@@ -143,5 +120,8 @@ class _MapPageState extends State<MapPage> {
             backgroundColor: MaterialStateProperty.all(Colors.blueAccent)),
       ),
     );
-  } //termina _buttonLogin
+  } 
+
+  
 }
+  
